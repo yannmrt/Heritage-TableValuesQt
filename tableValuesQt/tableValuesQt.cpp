@@ -47,18 +47,4 @@ void tableValuesQt::createTable() {
 
 	QObject::connect(label_histo, SIGNAL(returnPressed()), this, SLOT(createTableHisto()));
 
-	// On affiche le bouton pour remettre à Zéro le tableau
-	QPushButton *reset = new QPushButton("Remettre a Zero", this);
-	reset->move(150, 100);
-	reset->setGeometry(30, 30, 100, 20);
-	reset->setVisible(true);
-
-	QObject::connect(reset, SIGNAL(clicked()), this, SLOT(resetTableHisto()));
-	QObject::connect(reset, SIGNAL(clicked()), this, SLOT(reset()));
-
-}
-
-void tableValuesQt::reset()
-{
-	table->clear();
 }
