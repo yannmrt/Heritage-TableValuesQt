@@ -13,13 +13,14 @@ class QLineEdit_Histo : public QLineEdit
 	int tableSize;
 	QString value;
 
-	int valueNumber = 0;
-
 public:
-	QLineEdit_Histo(int tableSize, QObject *parent);
+	QLineEdit_Histo(int tableSize, QWidget *parent);
+
+signals:
+	void HistoUpdated(QVector<QString>tab);
 
 public slots:
-	void createTableHisto();
-	void resetTableHisto();
+	void insertHisto();
+
 };
 

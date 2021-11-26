@@ -1,29 +1,28 @@
 #include "QLineEdit_Histo.h"
 
-QLineEdit_Histo::QLineEdit_Histo(int tableSize, QObject *parent)
+QLineEdit_Histo::QLineEdit_Histo(int tableSize, QWidget *parent)
 	: QLineEdit((QWidget * )parent)
 {
 	this->tableSize = tableSize;
 
-	QObject::connect(this, SIGNAL(returnPressed()), this, SLOT(createTableHisto()));
+	QObject::connect(this, SIGNAL(returnPressed()), this, SLOT(insertHisto()));
 }
 
-void QLineEdit_Histo::createTableHisto()
+void QLineEdit_Histo::insertHisto()
 {
 	// On récupère la valeur entrée 
 	value = this->text();
-	qDebug() << value;
 
-	if (valueNumber >= tableSize) {
-		// On retire une case
+	if (value.size() > 0) {
+		if (tab.size() <= this->tableSize) {
+
+			tab.push_back(value);
+			emit HistoUpdated(tab);
+		}
+		else {
+			tab.pop_front();
+			tab.push_back(value);
+			emit HistoUpdated(tab);
+		}
 	}
-	else {
-		
-	}
-}
-
-void QLineEdit_Histo::resetTableHisto()
-{
-	qDebug() << "Signal reset clicked 1";
-
 }

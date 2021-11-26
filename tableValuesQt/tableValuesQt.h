@@ -7,6 +7,8 @@
 #include <QLabel>
 #include <QTableWidget>
 #include <QPushButton>
+#include <QStandardItemModel>
+
 
 class tableValuesQt : public QMainWindow
 {
@@ -15,25 +17,14 @@ class tableValuesQt : public QMainWindow
 public:
     tableValuesQt(QWidget *parent = Q_NULLPTR);
 
-	int tablenght;
-	int tableSize;
-
-
 private:
     Ui::tableValuesQtClass ui;
 
 	// On instancie les QLineEdit
-	QLineEdit *setValue;
-	QLineEdit_Histo *histo;
-
-	// On instancie les labels
-	QLabel *label_1;
+	QLineEdit_Histo *setValue;
 	QLabel *label_histo;
-
-	// On instancie le tableau
-	QTableWidget *table; 
+	QStandardItemModel *histoModel;
 
 public slots:
-	void createTable();
-	void reset();
+	void onHistoUpdated(QVector<QString>tab);
 };

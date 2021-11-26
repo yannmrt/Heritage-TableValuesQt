@@ -11,9 +11,11 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -23,6 +25,7 @@ class Ui_tableValuesQtClass
 {
 public:
     QWidget *centralWidget;
+    QTableView *histTableView;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -34,6 +37,9 @@ public:
         tableValuesQtClass->resize(725, 455);
         centralWidget = new QWidget(tableValuesQtClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        histTableView = new QTableView(centralWidget);
+        histTableView->setObjectName(QString::fromUtf8("histTableView"));
+        histTableView->setGeometry(QRect(460, 10, 256, 371));
         tableValuesQtClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(tableValuesQtClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
